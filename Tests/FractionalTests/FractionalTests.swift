@@ -118,4 +118,10 @@ class FractionalTests: XCTestCase {
         XCTAssertEqual(1/3, Double(1/3 as Fraction))
     }
     
+    func testCodeable() throws {
+        let str = "{\"numerator\":3,\"denominator\":4}"
+        XCTAssertEqual(str, String(data: try JSONEncoder().encode(3/4 as Fraction), encoding: .utf8))
+        XCTAssertEqual(3/4 as Fraction, try JSONDecoder().decode(Fraction.self, from: str.data(using: .utf8)!))
+    }
+    
 }

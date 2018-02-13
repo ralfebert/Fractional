@@ -20,7 +20,7 @@ private func reduce<Number: BinaryInteger>(numerator: Number, denominator: Numbe
 	return (numerator: numerator / divisor, denominator: denominator / divisor)
 }
 
-public struct Fractional<Number: BinaryInteger> {
+public struct Fractional<Number: BinaryInteger & Codable> : Codable {
 	/// The numerator of the fraction.
 	public let numerator: Number
 	
