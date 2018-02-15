@@ -112,7 +112,26 @@ class FractionalTests: XCTestCase {
         XCTAssertEqual(1/8 as Fraction, pow(1/2, 3))
         XCTAssertEqual(9 as Fraction, pow(1/3, -2))
     }
-    
+
+    func testDivideModulo() {
+        let ref = (5/6 as Fraction)
+        
+        XCTAssertEqual((0 as Fraction).div(ref), 0)
+        XCTAssertEqual((0 as Fraction).mod(ref), 0)
+        
+        XCTAssertEqual(ref.div(ref), 1)
+        XCTAssertEqual(ref.mod(ref), 0)
+        
+        XCTAssertEqual((3/6 as Fraction).div(ref), 0)
+        XCTAssertEqual((3/6 as Fraction).mod(ref), 3/6 as Fraction)
+        
+        XCTAssertEqual((13/6 as Fraction).div(ref), 2)
+        XCTAssertEqual((13/6 as Fraction).mod(ref), 3/6 as Fraction)
+
+        XCTAssertEqual((-13/6 as Fraction).div(ref), -2)
+        XCTAssertEqual((-13/6 as Fraction).mod(ref), -3/6 as Fraction)
+    }
+
     func testToFloatingPoint() {
         XCTAssertEqual(0.25, Float(1/4 as Fraction))
         XCTAssertEqual(1/3, Double(1/3 as Fraction))

@@ -154,7 +154,7 @@ extension Fractional: Numeric {
     public static func /(lhs: Fractional<Number>, rhs: Fractional<Number>) -> Fractional<Number> {
         return lhs * rhs.reciprocal
     }
-    
+
     public static func /=(lhs: inout Fractional<Number>, rhs: Fractional<Number>) {
         lhs = lhs / rhs
     }
@@ -213,6 +213,18 @@ extension Fractional: CustomStringConvertible {
 		default: return "\(numerator)/\(denominator)"
 		}
 	}
+}
+
+extension Fractional where Number == Int {
+    
+    public func div(_ rhs: Fraction) -> Int {
+        return Int(Float(self / rhs))
+    }
+    
+    public func mod(_ rhs: Fraction) -> Fraction {
+        return self - Fraction(self.div(rhs)) * rhs
+    }
+
 }
 
 extension Double {
