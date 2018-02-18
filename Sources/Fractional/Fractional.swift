@@ -217,12 +217,12 @@ extension Fractional: CustomStringConvertible {
 
 extension Fractional where Number == Int {
     
-    public func div(_ rhs: Fraction) -> Int {
-        return Int(Float(self / rhs))
+    public func wholeQuotient(dividingBy other: Fraction) -> Int {
+        return Int(Float(self / other))
     }
     
-    public func mod(_ rhs: Fraction) -> Fraction {
-        return self - Fraction(self.div(rhs)) * rhs
+    public func remainder(dividingBy other: Fraction) -> Fraction {
+        return self - Fraction(self.wholeQuotient(dividingBy: other)) * other
     }
 
 }

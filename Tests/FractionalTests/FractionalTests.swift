@@ -116,20 +116,20 @@ class FractionalTests: XCTestCase {
     func testDivideModulo() {
         let ref = (5/6 as Fraction)
         
-        XCTAssertEqual((0 as Fraction).div(ref), 0)
-        XCTAssertEqual((0 as Fraction).mod(ref), 0)
+        XCTAssertEqual((0 as Fraction).wholeQuotient(dividingBy: ref), 0)
+        XCTAssertEqual((0 as Fraction).remainder(dividingBy: ref), 0)
         
-        XCTAssertEqual(ref.div(ref), 1)
-        XCTAssertEqual(ref.mod(ref), 0)
+        XCTAssertEqual(ref.wholeQuotient(dividingBy: ref), 1)
+        XCTAssertEqual(ref.remainder(dividingBy: ref), 0)
         
-        XCTAssertEqual((3/6 as Fraction).div(ref), 0)
-        XCTAssertEqual((3/6 as Fraction).mod(ref), 3/6 as Fraction)
+        XCTAssertEqual((3/6 as Fraction).wholeQuotient(dividingBy: ref), 0)
+        XCTAssertEqual((3/6 as Fraction).remainder(dividingBy: ref), 3/6 as Fraction)
         
-        XCTAssertEqual((13/6 as Fraction).div(ref), 2)
-        XCTAssertEqual((13/6 as Fraction).mod(ref), 3/6 as Fraction)
-
-        XCTAssertEqual((-13/6 as Fraction).div(ref), -2)
-        XCTAssertEqual((-13/6 as Fraction).mod(ref), -3/6 as Fraction)
+        XCTAssertEqual((13/6 as Fraction).wholeQuotient(dividingBy: ref), 2)
+        XCTAssertEqual((13/6 as Fraction).remainder(dividingBy: ref), 3/6 as Fraction)
+        
+        XCTAssertEqual((-13/6 as Fraction).wholeQuotient(dividingBy: ref), -2)
+        XCTAssertEqual((-13/6 as Fraction).remainder(dividingBy: ref), -3/6 as Fraction)
     }
 
     func testToFloatingPoint() {
