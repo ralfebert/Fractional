@@ -1,0 +1,7 @@
+use_frameworks!
+platform :ios, '9.0'
+target 'Fractional_Tests' do
+  pod 'Fractional', :path => '../'
+  
+  
+end
